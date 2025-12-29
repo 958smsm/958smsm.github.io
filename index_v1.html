@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Osama Mohamed Adly Hemida — Computer Vision & AI Engineer" />
+  <title>Osama Mohamed Adly Hemida — CV</title>
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --card:#0f1626;
+      --text:#e7eaf0;
+      --muted:#a8b0c0;
+      --accent:#7aa2ff;
+      --line:rgba(231,234,240,.12);
+      --pill:rgba(122,162,255,.12);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --max: 980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 800px at 20% -10%, rgba(122,162,255,.22), transparent 60%),
+                  radial-gradient(1000px 700px at 110% 0%, rgba(94,234,212,.14), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      font-family:var(--sans);
+      line-height:1.55;
+    }
+
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:var(--max); margin:40px auto; padding:0 18px 60px}
+    header{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 22px 22px 18px;
+    }
+
+    .top{
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    h1{
+      font-size: clamp(28px, 3.2vw, 40px);
+      margin:0 0 6px 0;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      color:var(--muted);
+      margin:0;
+      font-size: 15px;
+    }
+
+    .contacts{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      align-items:flex-start;
+      min-width: 270px;
+      margin-top:6px;
+      font-size: 14px;
+      color:var(--muted);
+    }
+    .contacts .row{display:flex; gap:10px; flex-wrap:wrap}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius: 999px;
+    }
+    .badge code{font-family:var(--mono); font-size: 12px; color: var(--text)}
+    .note{
+      margin-top:14px;
+      padding: 10px 12px;
+      background: rgba(122,162,255,.08);
+      border:1px solid rgba(122,162,255,.22);
+      border-radius: 12px;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    nav{
+      margin-top:16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    nav a{
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      color: var(--text);
+      font-size: 13px;
+    }
+    nav a:hover{background: rgba(255,255,255,.05); text-decoration:none}
+
+    main{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    section{
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 18px 14px;
+    }
+    section h2{
+      margin:0 0 10px 0;
+      font-size: 18px;
+      letter-spacing:.2px;
+    }
+    .muted{color:var(--muted)}
+    ul{margin:8px 0 0 18px}
+    li{margin:6px 0}
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 14px;
+    }
+    @media (max-width: 820px){
+      .grid2{grid-template-columns:1fr}
+      .contacts{min-width:auto}
+    }
+    .item{padding:12px; border:1px solid var(--line); border-radius: 14px; background: rgba(0,0,0,.12)}
+    .item h3{margin:0 0 2px 0; font-size: 16px}
+    .meta{font-size: 13px; color: var(--muted)}
+    .pills{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .pill{background: var(--pill); border:1px solid rgba(122,162,255,.22); padding:6px 10px; border-radius:999px; font-size: 12.5px; color:var(--text)}
+    .hr{height:1px; background:var(--line); margin:14px 0}
+    .small{font-size: 13px}
+    .twoColList{columns: 2; column-gap: 22px}
+    .twoColList li{break-inside: avoid}
+    @media (max-width: 700px){ .twoColList{columns:1} }
+
+    footer{
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align:center;
+    }
+
+    /* Print-friendly */
+    @media print{
+      :root{ --bg:#fff; --card:#fff; --text:#111; --muted:#444; --accent:#0b57d0; --line:#ddd; --pill:#eef3ff; --shadow:none; }
+      body{background:#fff}
+      header, section{box-shadow:none}
+      nav{display:none}
+      a{text-decoration:underline}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Osama Mohamed Adly Hemida",
+    "email":"smsmadly1@gmail.com",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Nasr City, Cairo / Beni Suef",
+      "addressCountry":"EG"
+    },
+    "sameAs":[
+      "https://www.linkedin.com/in/958smsm",
+      "https://github.com/958smsm",
+      "https://www.kaggle.com/osamaadly",
+      "https://www.youtube.com/@958smsm"
+    ],
+    "jobTitle":"Computer Vision & AI Engineer"
+  }
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="top">
+        <div>
+          <h1>Osama Mohamed Adly Hemida</h1>
+          <p class="subtitle">Computer Vision &amp; AI Engineer • 5+ years experience • Cairo &amp; Beni Suef, Egypt</p>
+          <div class="pills" aria-label="Quick tags">
+            <span class="pill">Python</span>
+            <span class="pill">C++</span>
+            <span class="pill">PyTorch</span>
+            <span class="pill">OpenCV</span>
+            <span class="pill">YOLO / Detection</span>
+            <span class="pill">Deployment</span>
+          </div>
+        </div>
+
+        <div class="contacts" aria-label="Contact information">
+          <div class="row">
+            <span class="badge">📧 <a href="mailto:smsmadly1@gmail.com">smsmadly1@gmail.com</a></span>
+            <span class="badge">💬 <a href="https://wa.me/201019383132">WhatsApp: +20 101 938 3132</a></span>
+          </div>
+          <div class="row">
+            <span class="badge">in <a href="https://www.linkedin.com/in/958smsm">LinkedIn</a></span>
+            <span class="badge">🐙 <a href="https://github.com/958smsm">GitHub</a></span>
+            <span class="badge">📊 <a href="https://www.kaggle.com/osamaadly">Kaggle</a></span>
+            <span class="badge">▶️ <a href="https://www.youtube.com/@958smsm">YouTube</a></span>
+          </div>
+          <div class="small muted">Type of disability: Hearing impairment (cochlear implant).</div>
+          <div class="small muted">Preferred contact: chat (cannot take calls).</div>
+        </div>
+      </div>
+
+      <div class="note">
+        <strong>Summary</strong><br/>
+        Passionate and results-driven Computer Vision &amp; AI Engineer with 5+ years of professional experience
+        designing, developing, and deploying deep learning &amp; computer vision solutions. Delivered production-ready
+        applications including license plate recognition, face recognition, cylinder counting, and human action prediction.
+        Strong in Python/C++, PyTorch, OpenCV, and deployment workflows; also explored 3D modeling, robotics, and image generation.
+      </div>
+
+      <nav aria-label="Page navigation">
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#courses">Certificates</a>
+        <a href="#training">Trainings</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="item">
+          <h3>Senior Computer Vision &amp; AI Engineer — 3i vision</h3>
+          <div class="meta">Oct 2019 – Present • Giza, Egypt • <a href="http://www.3i-vision.com">3i-vision.com</a></div>
+          <p class="muted" style="margin:10px 0 0 0;">
+            Developed image recognition technology using deep learning frameworks and computer vision.
+          </p>
+          <div class="hr"></div>
+          <div class="grid2">
+            <div>
+              <div class="meta" style="margin-bottom:6px;">Delivered applications</div>
+              <ul>
+                <li>Cylinder Counting &amp; Classification (training &amp; prediction)</li>
+                <li>Vehicle License Plate Recognition (training &amp; prediction)</li>
+                <li>Face Recognition System</li>
+                <li>Chatbot Model (training &amp; prediction)</li>
+                <li>Human Action Prediction</li>
+                <li>Image Generator Prediction</li>
+                <li>Other CV/AI applications</li>
+              </ul>
+            </div>
+            <div>
+              <div class="meta" style="margin-bottom:6px;">Core stack</div>
+              <ul>
+                <li>PyTorch, OpenCV, Ultralytics/YOLO, CUDA</li>
+                <li>Model serving (TorchServe), optimization (quantization)</li>
+                <li>Deployment: Docker, Edge AI (TensorRT, OpenVINO)</li>
+                <li>APIs: REST, gRPC, Flask • Version control: Git</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="grid2">
+          <div class="item">
+            <h3>Computer Vision</h3>
+            <ul class="twoColList">
+              <li>Image Processing (OpenCV, scikit-image) — 5 years</li>
+              <li>Object Detection (YOLO, Faster R-CNN) — 4 years</li>
+              <li>Face Recognition (ArcFace, FaceNet, InsightFace) — 2 years</li>
+              <li>Keypoints matching — 2 years</li>
+              <li>Pose Estimation (YOLO, OpenPose, Mediapipe) — 2 months</li>
+              <li>OCR &amp; Text Recognition (Tesseract, PaddleOCR) — 45 days</li>
+              <li>Image Segmentation (YOLO, Mask R-CNN) — 30 days</li>
+              <li>Depth Estimation — 30 days</li>
+            </ul>
+          </div>
+
+          <div class="item">
+            <h3>AI Frameworks &amp; Libraries</h3>
+            <ul>
+              <li>PyTorch (primary) — 4 years</li>
+              <li>TensorFlow &amp; Keras — 2 years</li>
+              <li>ONNX Runtime — 2 months</li>
+              <li>MMDetection, Ultralytics YOLO — 4 years</li>
+              <li>Hugging Face Transformers (vision-language) — 2 years</li>
+              <li>NVIDIA &amp; CUDA — 3 years</li>
+              <li>TorchServe (model serving) — 3 years</li>
+            </ul>
+          </div>
+
+          <div class="item">
+            <h3>Deployment &amp; Scaling</h3>
+            <ul>
+              <li>Model optimization (quantization)</li>
+              <li>Docker</li>
+              <li>Edge AI: TensorRT, OpenVINO</li>
+              <li>API development: REST, gRPC, Flask</li>
+              <li>Version control: Git</li>
+            </ul>
+          </div>
+
+          <div class="item">
+            <h3>Data &amp; Tooling</h3>
+            <ul>
+              <li>Annotation: CVAT, Label Studio — 3 years</li>
+              <li>Synthetic data: Blender — 45 days</li>
+              <li>Augmentation: Albumentations — 20 days</li>
+              <li>OS/servers: Linux, Windows Server, SSH, RDP, VNC, AnyDesk</li>
+              <li>Virtualization: VMware, VirtualBox, VMs</li>
+              <li>Hardware: Raspberry Pi, Arduino</li>
+              <li>Tools: Microsoft Office • Python • C++</li>
+              <li>Design: Photoshop, After Effects, 3ds Max, Blender</li>
+              <li>Scientific: Maple, LabVIEW</li>
+            </ul>
+          </div>
+
+          <div class="item" style="grid-column:1/-1">
+            <h3>Emerging &amp; Advanced Topics</h3>
+            <ul class="twoColList">
+              <li>Large Vision Models: Segment Anything, DINO, CLIP</li>
+              <li>Vision-Language Models: LLaVA</li>
+              <li>Generative AI for Images/Video: Stable Diffusion, Runway</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+
+        <div class="item">
+          <h3>Tempo Tracker — Cross-platform desktop time tracking app</h3>
+          <div class="meta">Aug 2025 – Present • PyQt6 • Python/C++/C# • Windows &amp; Linux</div>
+          <p class="muted" style="margin:10px 0 0 0;">
+            Rules-based window classification, hourly focus/active/idle charts, CSV export, system tray, autostart,
+            dark/light theme. Includes device fingerprinting, anonymous and account trials (JWT-verified), and
+            Ed25519-verified auto-updates.
+          </p>
+          <div class="pills">
+            <span class="pill">PyQt6</span><span class="pill">Matplotlib</span><span class="pill">YAML/JSON</span>
+            <span class="pill">Firebase/Supabase (REST)</span><span class="pill">GitHub Releases updater</span>
+          </div>
+          <div class="hr"></div>
+          <div class="meta">Code size: 4,000+ lines • Progress: ~100 hrs completed (est. 320–600 hrs)</div>
+        </div>
+
+        <div class="item" style="margin-top:12px">
+          <h3>Live Speech Recognition (Arabic &amp; English)</h3>
+          <div class="meta">Oct 2023 – Present • Windows &amp; Android</div>
+          <ul>
+            <li>Developing real-time speech recognition system; training recognition model with private &amp; public datasets.</li>
+            <li>Tools: Label Studio, Qt, Python, TensorRT, Android Studio.</li>
+            <li>Progress: ~80 hrs completed (est. 400–900 hrs).</li>
+          </ul>
+        </div>
+
+        <div class="item" style="margin-top:12px">
+          <h3>Handwritten OCR Recognition (Arabic &amp; English)</h3>
+          <div class="meta">Computer Vision • Deep Learning • NLP • Frontend/Backend</div>
+          <ul>
+            <li>OCR system designed to recognize and digitize handwritten text from various sources.</li>
+            <li>Tools: PaddleOCR, Pillow, CVAT, Qt, Django, Android Studio.</li>
+            <li>Progress: ~30 hrs completed (est. 400–900 hrs).</li>
+          </ul>
+        </div>
+
+        <div class="item" style="margin-top:12px">
+          <h3>Temporal Optical Reconstruction System (TORS) — Theoretical Research</h3>
+          <div class="meta">Conceptual phase (2025 – Future)</div>
+          <ul>
+            <li>Exploring a system to reconstruct visual records (“video”) from ancient eras by integrating theoretical
+                models (quantum retrocausality, astrophysical light preservation) with advanced reconstruction methods.</li>
+            <li>Tools: PyTorch, OpenCV, CUDA, quantum simulation, advanced sensors, Comsol Multiphysics, Maple.</li>
+            <li>Progress: ~10 hrs completed (very long-horizon research concept).</li>
+          </ul>
+        </div>
+
+        <div class="item" style="margin-top:12px">
+          <h3>Military Applications Robot — Graduation Project (El Shorouk Academy)</h3>
+          <div class="meta">Aug 2018 – Aug 2019 • Grade: Excellence</div>
+          <ul>
+            <li>Features: Face recognition, live camera, remote control, gas discovery technique, multiple modes.</li>
+            <li>Hardware: Raspberry Pi 3, Arduino, 4-channel motor controller; IR/Ultrasonic/Gas sensors; batteries &amp; solar cell; camera.</li>
+            <li>Software: Python, Node.js; web interface for control.</li>
+            <li>Video: <a href="https://youtu.be/1xxwi-80NEU">https://youtu.be/1xxwi-80NEU</a></li>
+          </ul>
+        </div>
+
+        <div class="item" style="margin-top:12px">
+          <h3>Other Projects</h3>
+          <ul class="twoColList">
+            <li>3D modelling — 3ds Max &amp; Blender (portfolio link to add)</li>
+            <li>Gas sensor system — Arduino fan/LED control via relay (project link to add)</li>
+            <li>Line follower car — Arduino (with IEEE SHA)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div class="item">
+          <h3>Faculty of Engineering — El Shorouk Academy</h3>
+          <div class="meta">2014 – 2019</div>
+          <ul>
+            <li>Major: Communications and Electronics Engineering</li>
+            <li>Grade: Good</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="courses">
+        <h2>Certificates &amp; Courses</h2>
+        <ul class="twoColList">
+          <li>Learn 3D Animation — The Ultimate Blender 4.3+ A–Z Guide (2025)</li>
+          <li>Coursera — Quantum Optics 2 (2022)</li>
+          <li>Coursera — Nanotechnology (2020)</li>
+          <li>Udacity — Computer Vision Nanodegree (2020)</li>
+          <li>Udemy — Machine Learning Nanodegree (2020)</li>
+          <li>Udacity — AI Programming with Python Nanodegree (2019)</li>
+          <li>Microcontroller and Electronic IC's Designing (2016)</li>
+          <li>ICDL certificate (2012)</li>
+          <li>3Ds Max (2011)</li>
+          <li>Photoshop (2009)</li>
+          <li>PowerPoint (2003)</li>
+        </ul>
+      </section>
+
+      <section id="training">
+        <h2>Trainings</h2>
+        <ul>
+          <li>SEEG-P Samsung Electronics Egypt — Production (Aug 2018 – Sept 2018)</li>
+          <li>EL ARABY company (July 2018)</li>
+          <li>Telecom Egypt — Optical Fiber &amp; SDH (2017)</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <div>Tip: this page is ready for GitHub Pages — upload as <code style="font-family:var(--mono)">index.html</code>.</div>
+    </footer>
+  </div>
+</body>
+</html>
